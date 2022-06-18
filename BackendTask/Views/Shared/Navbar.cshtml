@@ -1,0 +1,39 @@
+﻿<header>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <a class="navbar-brand" href="#">BackendTask</a>
+        <ul class="navbar-nav ml-2">
+            @if (User.IsInRole("admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Reports/UserReports">User Reports</a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link" href="/Reports/RegistrationReport">Registration Report</a>
+                </li>
+                <li class="nav-item ml-2">
+                    <a class="nav-link" href="/Reports/LoginTimeReport">Login Report</a>
+                </li>
+            }
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/logout">Logout </a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/register">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/login">Login</a>
+                </li>
+            }
+
+
+        </ul>
+    </nav>
+</header>
